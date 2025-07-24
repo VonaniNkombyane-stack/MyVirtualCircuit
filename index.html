@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vonani Nkombyane | Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            scroll-behavior: smooth;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+            body.dark-mode {
+                background-color: #121212;
+                color: #eee;
+            }
+
+                body.dark-mode a {
+                    color: #66aaff;
+                }
+
+                body.dark-mode .navbar {
+                    background-color: #222 !important;
+                }
+
+                body.dark-mode footer {
+                    background: #222;
+                    color: #bbb;
+                }
+
+        .navbar {
+            margin-bottom: 40px;
+        }
+
+        section {
+            padding: 60px 0;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+            section.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        .project-card {
+            transition: transform 0.3s ease;
+        }
+
+            .project-card:hover {
+                transform: translateY(-5px);
+            }
+
+        footer {
+            background: #f5f5f5;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Skill bars */
+        .skill {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .skill-label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-bar {
+            width: 100%;
+            background: #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 20px;
+        }
+
+        .skill-progress {
+            height: 100%;
+            width: 0;
+            background: #0d6efd;
+            border-radius: 8px 0 0 8px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Dark mode toggle button */
+        #darkModeToggle {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 1050;
+            background: #0d6efd;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: background 0.3s ease;
+        }
+
+            #darkModeToggle:hover {
+                background: #0056b3;
+            }
+
+        /* Back to Top button */
+        #backToTop {
+            position: fixed;
+            bottom: 100px;
+            right: 40px;
+            z-index: 1050;
+            background: #6c757d;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            display: none;
+            transition: background 0.3s ease;
+        }
+
+            #backToTop:hover {
+                background: #5a6268;
+            }
+
+        /* Contact form */
+        form {
+            max-width: 480px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+            form .form-control:focus {
+                box-shadow: 0 0 5px #0d6efd;
+                border-color: #0d6efd;
+            }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Vonani Nkombyane</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ABOUT -->
+    <section id="about" class="container text-center">
+        <h2>About Me</h2>
+        <p class="lead">
+            I'm Vonani Nkombyane, an Information Technology student at North-West University with a strong foundation in OOP, system design, and data analysis. I’ve worked on multiple academic and personal projects involving C#, Java, Python, and SQL. I'm known for strong problem-solving skills, teamwork, and a proactive learning attitude. I'm passionate about technology and excited to grow in a forward-thinking tech environment.
+        </p>
+        <img src="images/profile.jpg" alt="Vonani's photo" class="rounded-circle" width="250" />
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume" class="bg-light text-center">
+        <div class="container">
+            <h2>Resume</h2>
+            <p><a class="btn btn-primary" href="cv/Vonani Nkombyane's CV.pdf" download>Download My CV</a></p>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="container text-center">
+        <h2>Projects</h2>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card project-card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Rental Company System</h5>
+                        <p class="card-text">Built a full-stack rental management app in C# and ASP.NET. It handles client registration, admin portals, and inventory. Version controlled using GitHub.</p>
+                        <p><strong>Technologies:</strong> C#, ASP.NET, SQL Server, Git</p>
+                        <a href="https://github.com/vonanink/rental-system" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mt-3 mt-md-0">
+                <div class="card project-card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Data Structures (Java)</h5>
+                        <p class="card-text">Implemented Java algorithms using arrays and linked lists for a group project. Focused on modular, reusable OOP code with real-world scenarios.</p>
+                        <p><strong>Technologies:</strong> Java, OOP, Git</p>
+                        <a href="https://github.com/vonanink/data-structures-java" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="bg-light text-center">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-6 text-start">
+                    <h4><i class="fa-solid fa-laptop-code"></i> Technical Skills</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="fa-brands fa-cuttlefish"></i> C# / .NET</li>
+                        <li><i class="fa-brands fa-java"></i> Java & Python</li>
+                        <li><i class="fa-solid fa-database"></i> SQL & Oracle</li>
+                        <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
+                        <li><i class="fa-solid fa-code"></i> Object-Oriented Programming</li>
+                        <li><i class="fa-solid fa-robot"></i> AI & Data Structures</li>
+                        <li><i class="fa-solid fa-chart-line"></i> Excel & Data Analysis</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-start mt-4 mt-md-0">
+                    <h4><i class="fa-solid fa-people-group"></i> Soft Skills</h4>
+                    <ul class="list-unstyled">
+                        <li><i class="fa-solid fa-lightbulb"></i> Analytical Thinking</li>
+                        <li><i class="fa-solid fa-screwdriver-wrench"></i> Problem Solving</li>
+                        <li><i class="fa-solid fa-users"></i> Team Collaboration</li>
+                        <li><i class="fa-solid fa-comments"></i> Communication</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="container text-center">
+        <h2>Contact Me</h2>
+        <p><i class="fa-solid fa-location-dot"></i> Saselamani, Limpopo, 0928, South Africa</p>
+        <p><i class="fa-solid fa-phone"></i> 071 418 5289</p>
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:nkombyanevoni@gmail.com">nkombyanevoni@gmail.com</a></p>
+        <p><i class="fa-brands fa-linkedin"></i> LinkedIn: <a href="https://linkedin.com/in/vonani-nkombyane-470832344" target="_blank" rel="noopener noreferrer">vonani-nkombyane</a></p>
+        <p><i class="fa-brands fa-github"></i> GitHub: <a href="https://github.com/VonaniNkombyane-stack" target="_blank" rel="noopener noreferrer">github.com/vonanink</a></p>
+
+        <h3 class="mt-5 mb-4">Send me a message</h3>
+        <form id="contactForm" novalidate>
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name *</label>
+                <input type="text" class="form-control" id="name" required />
+                <div class="error-message" id="nameError">Please enter your name.</div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address *</label>
+                <input type="email" class="form-control" id="email" required />
+                <div class="error-message" id="emailError">Please enter a valid email.</div>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message *</label>
+                <textarea class="form-control" id="message" rows="4" required></textarea>
+                <div class="error-message" id="messageError">Please enter a message.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Vonani Nkombyane. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle" title="Toggle Dark Mode"><i class="fa-solid fa-moon"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Fade-in sections on scroll
+        const sections = document.querySelectorAll("section");
+        function checkVisibility() {
+            const triggerBottom = window.innerHeight * 0.85;
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < triggerBottom) {
+                    section.classList.add("visible");
+                }
+            });
+        }
+        window.addEventListener("scroll", checkVisibility);
+        window.addEventListener("load", () => {
+            checkVisibility();
+            animateSkills();
+        });
+
+        // Animate skill bars
+        function animateSkills() {
+            const progressBars = document.querySelectorAll(".skill-progress");
+            progressBars.forEach(bar => {
+                const width = bar.getAttribute("data-progress");
+                bar.style.width = width;
+            });
+        }
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        darkModeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            // toggle icon
+            if (document.body.classList.contains("dark-mode")) {
+                darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                darkModeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+            // Save preference
+            localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+        });
+        // Load dark mode preference
+        if (localStorage.getItem("darkMode") === "true") {
+            document.body.classList.add("dark-mode");
+            darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        }
+
+        // Back to top button
+        const backToTop = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = "block";
+            } else {
+                backToTop.style.display = "none";
+            }
+        });
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Contact form validation and mailto
+        const contactForm = document.getElementById("contactForm");
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            let valid = true;
+
+            const name = document.getElementById("name");
+            const email = document.getElementById("email");
+            const message = document.getElementById("message");
+
+            const nameError = document.getElementById("nameError");
+            const emailError = document.getElementById("emailError");
+            const messageError = document.getElementById("messageError");
+
+            // Reset errors
+            nameError.style.display = "none";
+            emailError.style.display = "none";
+            messageError.style.display = "none";
+
+            if (!name.value.trim()) {
+                nameError.style.display = "block";
+                valid = false;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailRegex.test(email.value)) {
+                emailError.style.display = "block";
+                valid = false;
+            }
+
+            if (!message.value.trim()) {
+                messageError.style.display = "block";
+                valid = false;
+            }
+
+            if (valid) {
+                // Open mail client
+                const mailtoLink = `mailto:nkombyanevoni@gmail.com?subject=Portfolio%20Contact%20from%20${encodeURIComponent(name.value)}&body=${encodeURIComponent(message.value + "\n\nEmail: " + email.value)}`;
+                window.location.href = mailtoLink;
+                contactForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
