@@ -11,54 +11,123 @@
         body {
             scroll-behavior: smooth;
             transition: background-color 0.3s, color 0.3s;
+            background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+            color: #f0f0f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
             body.dark-mode {
-                background-color: #121212;
-                color: #eee;
+                background: linear-gradient(135deg, #1e1e2f 0%, #2c2c3e 100%);
+                color: #ddd;
             }
 
                 body.dark-mode a {
                     color: #66aaff;
                 }
 
-                body.dark-mode .navbar {
-                    background-color: #222 !important;
-                }
-
-                body.dark-mode footer {
-                    background: #222;
-                    color: #bbb;
-                }
-
+        /* Navbar */
         .navbar {
             margin-bottom: 40px;
+            background: rgba(13, 110, 253, 0.9) !important; /* Bootstrap primary blue with transparency */
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+            font-weight: 600;
+            letter-spacing: 0.04em;
         }
 
+        .navbar-dark .navbar-nav .nav-link {
+            color: #e0e7ff;
+            transition: color 0.3s ease;
+        }
+
+            .navbar-dark .navbar-nav .nav-link:hover,
+            .navbar-dark .navbar-nav .nav-link.active {
+                color: #ffe066; /* warm gold highlight */
+                text-shadow: 0 0 5px #ffe066;
+            }
+
+        /* Sections */
         section {
             padding: 60px 0;
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 0.6s ease, transform 0.6s ease;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            color: #222;
         }
 
-            section.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        body.dark-mode section {
+            background: rgba(30, 30, 47, 0.8);
+            color: #ddd;
+        }
 
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cards */
         .project-card {
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.2);
+            background: #f8f9fa;
+            color: #222;
         }
 
             .project-card:hover {
-                transform: translateY(-5px);
+                transform: translateY(-8px);
+                box-shadow: 0 12px 30px rgba(13, 110, 253, 0.5);
             }
 
+        body.dark-mode .project-card {
+            background: #2c2c3e;
+            color: #eee;
+            box-shadow: 0 8px 20px rgba(102, 16, 242, 0.5);
+        }
+
+            body.dark-mode .project-card:hover {
+                box-shadow: 0 12px 30px rgba(102, 16, 242, 0.8);
+            }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: #6610f2;
+            border-color: #6610f2;
+            font-weight: 600;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .btn-primary:hover,
+            .btn-primary:focus {
+                background-color: #a56eff;
+                border-color: #a56eff;
+                box-shadow: 0 0 10px #a56eff;
+            }
+
+        .btn-outline-primary {
+            color: #6610f2;
+            border-color: #6610f2;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+            .btn-outline-primary:hover {
+                background-color: #6610f2;
+                color: #fff;
+                box-shadow: 0 0 10px #6610f2;
+            }
+
+        /* Footer */
         footer {
-            background: #f5f5f5;
-            padding: 20px 0;
-            text-align: center;
+            background: #6610f2;
+            color: #eee;
+            padding: 25px 0;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            box-shadow: inset 0 3px 8px rgba(255,255,255,0.1);
         }
 
         /* Skill bars */
@@ -68,36 +137,52 @@
         }
 
         .skill-label {
-            font-weight: 600;
-            margin-bottom: 5px;
+            font-weight: 700;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            color: #6610f2;
         }
 
         .skill-bar {
             width: 100%;
-            background: #ddd;
-            border-radius: 8px;
+            background: #dcd7f9;
+            border-radius: 10px;
             overflow: hidden;
-            height: 20px;
+            height: 22px;
+            box-shadow: inset 0 2px 4px rgba(102,16,242,0.3);
         }
 
         .skill-progress {
             height: 100%;
             width: 0;
-            background: #0d6efd;
-            border-radius: 8px 0 0 8px;
+            background: linear-gradient(90deg, #6610f2, #a56eff);
+            border-radius: 10px 0 0 10px;
             transition: width 1.5s ease-in-out;
         }
 
-        /* Dark mode toggle button */
+        /* Dark mode skill bars */
+        body.dark-mode .skill-label {
+            color: #a56eff;
+        }
+
+        body.dark-mode .skill-bar {
+            background: #3a3660;
+            box-shadow: inset 0 2px 4px rgba(165,110,255,0.5);
+        }
+
+        body.dark-mode .skill-progress {
+            background: linear-gradient(90deg, #a56eff, #d3b9ff);
+        }
+
+        /* Dark Mode Toggle Button */
         #darkModeToggle {
             position: fixed;
             bottom: 40px;
             right: 40px;
             z-index: 1050;
-            background: #0d6efd;
+            background: #6610f2;
             border: none;
             border-radius: 50%;
             width: 50px;
@@ -105,21 +190,21 @@
             color: white;
             font-size: 22px;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 10px rgba(102, 16, 242, 0.8);
             transition: background 0.3s ease;
         }
 
             #darkModeToggle:hover {
-                background: #0056b3;
+                background: #a56eff;
             }
 
-        /* Back to Top button */
+        /* Back to Top Button */
         #backToTop {
             position: fixed;
             bottom: 100px;
             right: 40px;
             z-index: 1050;
-            background: #6c757d;
+            background: #6f42c1;
             border: none;
             border-radius: 50%;
             width: 45px;
@@ -127,32 +212,27 @@
             color: white;
             font-size: 20px;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(111, 66, 193, 0.8);
             display: none;
             transition: background 0.3s ease;
         }
 
             #backToTop:hover {
-                background: #5a6268;
+                background: #8a63d9;
             }
 
-        /* Contact form */
-        form {
-            max-width: 480px;
-            margin: 0 auto;
-            text-align: left;
+        /* Links */
+        a {
+            color: #6610f2;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-            form .form-control:focus {
-                box-shadow: 0 0 5px #0d6efd;
-                border-color: #0d6efd;
+            a:hover,
+            a:focus {
+                color: #a56eff;
+                text-decoration: underline;
             }
-
-        .error-message {
-            color: red;
-            font-size: 0.9em;
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -227,7 +307,6 @@
         </div>
     </section>
 
-
     <!-- SKILLS -->
     <section id="skills" class="bg-light text-center">
         <div class="container">
@@ -257,7 +336,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- CONTACT -->
     <section id="contact" class="container text-center">
@@ -350,7 +428,7 @@
         // Back to top button
         const backToTop = document.getElementById("backToTop");
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
+            if (window.scrollY > 400) {
                 backToTop.style.display = "block";
             } else {
                 backToTop.style.display = "none";
@@ -360,9 +438,9 @@
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
-        // Contact form validation and mailto
+        // Simple form validation
         const contactForm = document.getElementById("contactForm");
-        contactForm.addEventListener("submit", function (e) {
+        contactForm.addEventListener("submit", (e) => {
             e.preventDefault();
             let valid = true;
 
@@ -374,37 +452,43 @@
             const emailError = document.getElementById("emailError");
             const messageError = document.getElementById("messageError");
 
-            // Reset errors
-            nameError.style.display = "none";
-            emailError.style.display = "none";
-            messageError.style.display = "none";
-
-            if (!name.value.trim()) {
+            // Name validation
+            if (name.value.trim() === "") {
                 nameError.style.display = "block";
                 valid = false;
+            } else {
+                nameError.style.display = "none";
             }
 
+            // Email validation (simple regex)
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email.value.trim() || !emailRegex.test(email.value)) {
+            if (!emailRegex.test(email.value.trim())) {
                 emailError.style.display = "block";
                 valid = false;
+            } else {
+                emailError.style.display = "none";
             }
 
-            if (!message.value.trim()) {
+            // Message validation
+            if (message.value.trim() === "") {
                 messageError.style.display = "block";
                 valid = false;
+            } else {
+                messageError.style.display = "none";
             }
 
             if (valid) {
-                // Open mail client
-                const mailtoLink = `mailto:nkombyanevoni@gmail.com?subject=Portfolio%20Contact%20from%20${encodeURIComponent(name.value)}&body=${encodeURIComponent(message.value + "\n\nEmail: " + email.value)}`;
-                window.location.href = mailtoLink;
+                alert("Thank you for your message!");
                 contactForm.reset();
             }
         });
     </script>
 </body>
 </html>
+
+
+
+
 
 
 
